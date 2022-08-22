@@ -1,9 +1,11 @@
 const store = require('./app/store');
 const cakeActions = require('./features/cake/cakeSlice').cakeActions
 const icecreamActions = require('./features/icecream/icecreamSlice').icecreamActions;
+const fetchUsers = require('./features/users/userSlice').fetchUsers;
 
 console.log('Initial state ', store.getState());
-const unsubscribe = store.subscribe(()=>{});
+const unsubscribe = store.subscribe(()=>{console.log(store.getState())});
+store.dispatch(fetchUsers());
 
 store.dispatch(cakeActions.ordered());
 store.dispatch(cakeActions.ordered());
